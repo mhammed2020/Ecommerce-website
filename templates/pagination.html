@@ -1,0 +1,17 @@
+
+<div class="pt-3 mt-4 mb-5 text-center">
+
+        {% if page.has_previous %}
+        <a class="btn btn-secondary bg-secondary" href="?page={{page.previous_page_number }}"> Previous </a>
+            {% else %}
+            <a class="btn btn-secondary bg-secondary disabled" href=""> Previous </a>
+            {% endif %}
+        <span class="pr-4 pl-4"> page {{page.number}} from {{page.paginator.num_pages}} </span>
+
+     {% if page.has_next %}
+    <a class="btn btn-secondary bg-secondary" href="?page={{page.next_page_number }}"> Next </a>
+       {% else %}
+         <a class="btn btn-secondary bg-secondary disabled" href=""> Next </a>
+
+    {% endif %}
+</div>

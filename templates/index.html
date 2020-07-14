@@ -1,0 +1,79 @@
+
+{% extends 'layout.html' %}
+
+{% block content %}
+
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+          <!--Grid column-->
+                    {% for post in posts %}
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <!--Card-->
+            <div class="card">
+              <!--Card image-->
+              <div class="view overlay">
+             <img src="{{post.img.url}}"  height="280" width="270"alt="">
+
+                <a>
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+              <!--Card image-->
+              <!--Card content-->
+              <div class="card-body text-center">
+                <!--Category & Title-->
+                <a href="" class="grey-text">
+                  <h5>{{post.name}}</h5>
+                </a>
+                <h5>
+                  <strong>
+                    <a href="" class="dark-grey-text">{{post.desc}}
+                     <a href="/posts/details/{{post.id}}" class="btn btn-info">Acheter</a>
+
+                      {% if post.offer %}
+                      <span class="badge badge-pill danger-color">NEW</span>
+
+                      {% endif  %}
+                    </a>
+                  </strong>
+                </h5>
+
+                <h4 class="font-weight-bold blue-text">
+                  <strong>{{post.price}}DH</strong>
+                </h4>
+
+              </div>
+              <!--Card content-->
+
+            </div>
+            <!--Card-->
+
+          </div>
+          <!--Grid column-->
+          {% endfor %}
+          <!--Grid column-->
+
+          <div class="col-lg-3 col-md-6 mb-4">
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+          </div>
+        </div>
+        <div class="row wow fadeIn">
+          <div class="col-lg-3 col-md-6 mb-4">
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+          </div>
+               </div>
+{% include 'pagination.html'  with page=posts %}
+
+{% endblock  %}
